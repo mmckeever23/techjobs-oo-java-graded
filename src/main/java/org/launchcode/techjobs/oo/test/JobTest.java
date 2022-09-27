@@ -41,4 +41,18 @@ public class JobTest {
         Job anotherTestJobForEquals = new Job("Mr. Manager", new Employer("Banana Stand"), new Location("Newport Beach"), new PositionType("Sales"), new CoreCompetency("Honesty"));
         assertFalse(testJobForEquals.equals(anotherTestJobForEquals));
     }
+
+@Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job testJobForNewLine = new Job("Mr. Manager", new Employer("Banana Stand"), new Location("Newport Beach"), new PositionType("Sales"), new CoreCompetency("Honesty"));
+        int index = testJobForNewLine.toString().length()-1;
+        assertEquals(testJobForNewLine.toString().charAt(0), '\n');
+        assertEquals(testJobForNewLine.toString().charAt(index), '\n');
+    }
+
+@Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        Job testJobForLabelsAndData = new Job("Mr. Manager", new Employer("Banana Stand"), new Location("Newport Beach"), new PositionType("Sales"), new CoreCompetency("Honesty"));
+        assertEquals(testJobForLabelsAndData.toString(), "\n" + "ID: 3" + "\n" + "Name: Mr. Manager" + "\n" + "Employer: Banana Stand" + "\n" + "Location: Newport Beach" + "\n" + "Position Type: Sales" + "\n" + "Core Competency: Honesty" + "\n");
+    }
 }
