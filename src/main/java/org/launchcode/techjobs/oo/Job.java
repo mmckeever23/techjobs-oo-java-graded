@@ -95,7 +95,22 @@ public class Job {
     }
 
     public String toString() {
-        return "\n" + "ID: " + id + "\n" + "Name: " + name + "\n" + "Employer: " + employer + "\n" + "Location: " + location + "\n" + "Position Type: " + positionType + "\n" + "Core Competency: " + coreCompetency + "\n";
+        String output = "";
+        if (name == "") {
+            name = "Data not available";
+        } if (employer.getValue() == "" || employer.getValue() == null) {
+            employer.setValue("Data not available");
+        } if (location.getValue() == "" || location.getValue() == null) {
+            location.setValue("Data not available");
+        } if (positionType.getValue() == "" || positionType.getValue() == null) {
+            positionType.setValue("Data not available");
+        } if (coreCompetency.getValue() == "" || coreCompetency.getValue() == null) {
+            coreCompetency.setValue("Data not available");
+        }
+
+        output = "\n" + "ID: " + id + "\n" + "Name: " + name + "\n" + "Employer: " + employer + "\n" + "Location: " + location + "\n" + "Position Type: " + positionType + "\n" + "Core Competency: " + coreCompetency + "\n";
+
+        return output;
     }
 
 }
